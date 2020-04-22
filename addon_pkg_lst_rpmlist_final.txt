@@ -1,111 +1,4 @@
-#Pull from latest centos 7
-FROM csmykay/ess-hpecp-mofed-centos7.6-image:latest
-LABEL maintainer=chad.smykay@hpe.com
-# Runtime enviroment variables.
-ARG BUILD_DATE
-ARG BUILD_VERSION
-#ARG MOFED_VERS=4.5-1.0.1.0
-#ARG OS_VER=rhel7.6
-#ARG PLATFORM=x86_64
-#Labels
-LABEL org.label-schema.build-date=$BUILD_DATE
-LABEL org.label-schema.name="ess-hpecp-mofed-centos7.6-image/latest"
-LABEL org.label-schema.description="Mellanox drive enabled docker image"
-LABEL org.label-schema.url="https:/github.hpe.com"
-LABEL org.label-schema.vcs-url="https://github.hpe.com/chad-smykay/ess-hpecp-mofed-centos7.6-image"
-LABEL org.label-schema.vendor="HPE"
-LABEL org.label-schema.version=$BUILD_VERSION
-LABEL org.label-schema.docker.cmd="docker run -v eess-hpecp-mofed-centos7.6-image/latest -d ess-hpecp-mofed-centos7.6-image/latest"
-#Here if you need a user to do work
-#groupadd group &&
-#useradd -g user -s /bin/bash user &&
-#echo -e "$5$VZ3KNRVQS3g$NPM9hwldIY5qL27oL3y/VVCwPjKeBFaxBiUeYE2pWi3\n$5$VZ3KNRVQS3g$NPM9hwldIY5qL27oL3y/VVCwPjKeBFaxBiUeYE2pWi3" | passwd user &&     
-#Update yum repos
-RUN yum update -y
-RUN yum install -y epel-release
-#Install base packages for customer site
-RUN yum install -y compat-libraries \
-debugging \
-hardware-monitoring \
-java-platform \
-network-file-system-client \
-perl-runtime \
-x11 \
-OpenIPMI \
-boost \
-chrony \
-cups \
-dos2unix \
-freeglut \
-ftp \
-gcc \
-gcc-gfortran \
-gdisk \
-gettext \
-glibc.i686 \
-ipmitool \
-java-1.8.0-openjdk \
-kexec-tools \
-ksh \
-lapack \
-libXfont \
-libXmu \
-libXp \
-libXpm \
-libXt \
-librados2 \
-libstdc++.i686 \
-libvdpau \
-libxml2.i686 \
-libxslt.x86_64 \
-logwatch \
-lshw \
-make \
-mcelog \
-mesa-private-llvm \
-motif \
-mt-st \
-ncurses-libs.i686 \
-net-snmp \
-net-snmp-utils \
-nmap \
-ntp \
-numactl \
-papi \
-patch \
-perl-Bit-Vector \
-perl-Carp-Clan \
-perl-Convert-ASN1 \
-perl-Date-Calc \
-perl-Date-Manip \
-perl-Net-SSLeay \
-perl-Parse-RecDescent \
-perl-XML-LibXML \
-perl-XML-Simple \
-portreserve \
-prelink \
-python-dmidecode \
-rmt \
-ruby \
-screen \
-sendmail \
-sendmail-cf \
-sg3_utils \
-stix-fonts \
-sysfsutils \
-syslinux \
-tftp \
-tk \
-tmpwatch \
-unixODBC \
-uuid \
-wireshark \
-xorg-x11-fonts-Type1 \
-xterm \
-ypbind \
-zlib.i686
-#Install add-on packages install for customer site
-RUN yum install -y abrt \
+abrt \
 abrt-addon-ccpp \
 abrt-addon-kerneloops \
 abrt-addon-pstoreoops \
@@ -1019,15 +912,14 @@ ttmkfdir \
 tuned \
 tzdata-b \
 tzdata-java-b \
-#These don't work
-#ucx \
-#ucx-cma \
-#ucx-devel \
-#ucx-ib \
-#ucx-ib-cm \
-#ucx-knem \
-#ucx-rdmacm \
-#ucx-static \
+ucx \
+ucx-cma \
+ucx-devel \
+ucx-ib \
+ucx-ib-cm \
+ucx-knem \
+ucx-rdmacm \
+ucx-static \
 unixODBC \
 unzip \
 urw-fonts \
@@ -1100,6 +992,4 @@ yum-utils \
 zip \
 zlib--eli \
 zlib \
-zlib-devel
-#Set a working directory to download and intall the MOFED driver
-WORKDIR /tmp/
+zlib-devel \

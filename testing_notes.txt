@@ -1,0 +1,21 @@
+testing:
+
+docker pull csmykay/ess-hpecp-mofed-centos7.6-image:latest
+docker run -it --cap-add=IPC_LOCK --privileged --device=/dev/infiniband/uverbs0 --network host --name=my-verbs-prvlg3 csmykay/ess-hpecp-mofed-centos7.6-image bash
+
+Todo:
+
+Create a custom image with the customers packages and the NVIDIA drivers
+
+
+sed 's/[0-9.0-9.0-9]*//g' input.txt
+sed 's/--elx_ //g' addon_pkg_lst_rpmlist_no_vers.txt > addon_pkg_lst_rpmlist_no_vers1.txt
+sed 's/--elnoarch//g' addon_pkg_lst_rpmlist_no_vers1.txt > addon_pkg_lst_rpmlist_no_vers2.txt
+sed 's/-elnoarch//g' addon_pkg_lst_rpmlist_no_vers2.txt > addon_pkg_lst_rpmlist_no_vers3.txt
+sed 's/--x_//g' addon_pkg_lst_rpmlist_no_vers3.txt > addon_pkg_lst_rpmlist_no_vers4.txt
+sed 's/--dsfelx_//g' addon_pkg_lst_rpmlist_no_vers4.txt > addon_pkg_lst_rpmlist_no_vers5.txt
+sed 's/-x_//g' addon_pkg_lst_rpmlist_no_vers5.txt > addon_pkg_lst_rpmlist_no_vers6.txt
+sed 's/--elcentosx_//g' addon_pkg_lst_rpmlist_no_vers6.txt > addon_pkg_lst_rpmlist_no_vers7.txt
+sed 's/$/\\/g' addon_pkg_lst_rpmlist_clean4.txt > addon_pkg_lst_rpmlist_clean5.txt
+sed 's/\\//g' addon_pkg_lst_rpmlist_clean.txt > addon_pkg_lst_rpmlist_clean2.txt
+

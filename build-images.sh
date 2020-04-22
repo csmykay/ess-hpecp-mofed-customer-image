@@ -7,6 +7,6 @@ if [ -z $CURRENT ]; then
 fi
 docker build --build-arg BUILD_DATE=$DATE --build-arg BUILD_VERSION=$VERSION --no-cache=true --rm -f Dockerfile -t ess-hpecp-mofed-customer-image:$VERSION .
 docker tag ess-hpecp-mofed-customer-image:$VERSION ess-hpecp-mofed-customer-image:latest
-docker tag ess-hpecp-mofed-customer-image csmykay/ess-hpecp-mofed-customer-image:latest
+docker tag ess-hpecp-mofed-customer-image:latest csmykay/ess-hpecp-mofed-customer-image:latest
 docker login
-docker push ccsmykay/ess-hpecp-mofed-customer-image:latest 
+docker push csmykay/ess-hpecp-mofed-customer-image:latest 
